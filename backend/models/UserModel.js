@@ -58,7 +58,7 @@ module.exports = mongoose.model("User", UserSchema);
 // Default User Fields
 
 // {
-//   "username": "Kamran Ghulam",
+//   "name": "Kamran Ghulam",
 //   "userId": "C01",
 //   "userRole": "commuter",
 //   "password": "c1",
@@ -81,7 +81,7 @@ module.exports = mongoose.model("User", UserSchema);
 // Default User Fields
 
 // {
-//   "username": "Aysha",
+//   "name": "Aysha",
 //   "userRole": "host",
 //   "userId": "H02",
 //   "password": "h2",

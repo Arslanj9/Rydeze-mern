@@ -19,7 +19,7 @@ const CommuterCard = ({
   console.log(`Username is; ${name}`)
 
   return (
-    <div className="w-full mb-3 shadow-md rounded-lg flex items-center overflow-hidden border border-gray-100 border-opacity-30 bg-opacity-30 hover:cursor-pointer">
+    <div className="mb-3 shadow-md rounded-lg overflow-hidden border border-gray-100 border-opacity-30 bg-opacity-30 hover:cursor-pointer">
       <div className="flex flex-col shadow-sm w-full bg-green-300">
 
         {/* Left Side - Profile and Info */}
