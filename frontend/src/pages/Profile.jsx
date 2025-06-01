@@ -1,7 +1,8 @@
 import { useProfile } from '../context/ProfileContext';
 import { useState } from 'react';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+// const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = "http://localhost:5000";
 
 const Profile = () => {
     const { userData, selectedRole } = useProfile();

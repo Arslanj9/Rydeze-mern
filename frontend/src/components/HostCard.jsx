@@ -41,7 +41,7 @@ const HostCard = ({
                     <div className="flex gap-2 mt-4 mx-1 sm:mx-3 sm:gap-3">
                         {profilePic ? (
                             <img
-                                className="w-10 h-10 rounded-full sm:w-14 sm:h-14"
+                                className="w-10 h-10 min-w-10 min-h-10 rounded-full sm:min-w-14 sm:w-14 sm:h-14"
                                 src={`${apiUrl}${profilePic}`}
                                 alt={`${name} profile`}
                             />
@@ -55,7 +55,7 @@ const HostCard = ({
                     </div>
 
                     <div className="ml-2 my-auto">
-                      
+
                         <div className="flex flex-col justify-center">
                             <p className="text-gray-100 leading-none text-base mb-[0.18rem]">
                                 {name}

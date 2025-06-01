@@ -15,7 +15,6 @@ const CommuterCard = ({
     departureDate,
     numberOfRequiredSeats,
 }) => {
-    console.log(`Username is; ${name}`);
 
     return (
         <div className="mb-3 shadow-md rounded-lg overflow-hidden border border-gray-100 border-opacity-30 bg-opacity-30 hover:cursor-pointer">

@@ -1,4 +1,4 @@
-import { IoMdStar } from "react-icons/io";
+import { MdDelete } from "react-icons/md";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faUser,
@@ -17,67 +17,29 @@ const MyListingsCard = ({
     totalAvailableSeats,
     remainingAvailableSeats,
     price,
-    name,
-    profilePic,
-    rating,
-    reviews,
     bookedSeats,
 }) => {
-    
     // Count the number of male, female, and neutral icons needed
-    const maleCount = bookedSeats
-        .filter((seat) => seat.gender === "male")
-        .reduce((total, seat) => total + seat.numberOfBookedSeats, 0);
+    const maleCount = Array.isArray(bookedSeats)
+        ? bookedSeats
+              .filter((seat) => seat.gender === "male")
+              .reduce((total, seat) => total + seat.numberOfBookedSeats, 0)
+        : 0;
 
-    const femaleCount = bookedSeats
-        .filter((seat) => seat.gender === "female")
-        .reduce((total, seat) => total + seat.numberOfBookedSeats, 0);
+    const femaleCount = Array.isArray(bookedSeats)
+        ? bookedSeats
+              .filter((seat) => seat.gender === "female")
+              .reduce((total, seat) => total + seat.numberOfBookedSeats, 0)
+        : 0;
 
     const neutralCount = totalAvailableSeats - (maleCount + femaleCount);
 
     return (
         <div className="w-full mb-3 shadow-md rounded-lg flex items-center overflow-hidden border border-gray-100 border-opacity-30 bg-opacity-30">
             <div className="flex flex-row shadow-sm w-full">
-
-                <div className="flex flex-row  basis-2/3 p-2 flex-grow">
-
-                    <div className="flex gap-2 mt-4 mx-1 sm:mx-3 sm:gap-3">
-                        {profilePic ? (
-                            <img
-                                className="w-10 h-10 min-w-10 min-h-10 rounded-full sm:min-w-14 sm:w-14 sm:h-14"
-                                src={`${apiUrl}${profilePic}`}
-                                alt={`${name} profile`}
-                            />
-                        ) : (
-                            <img
-                                className="w-10 h-10 min-w-10 min-h-10 rounded-full sm:min-w-14 sm:w-14 sm:h-14"
-                                src={"./assets/icons/person-icon.png"}
-                                alt={`${name} profile`}
-                            />
-                        )}
-                    </div>
-
-                    <div className="ml-2 my-auto">
-
-                        <div className="flex flex-col justify-center">
-                            <p className="text-gray-100 leading-none text-base mb-[0.18rem]">
-                                {name}
-                            </p>
-                            <div className="flex gap-1 items-center">
-                                <IoMdStar
-                                    className="text-xs"
-                                    style={{ fill: "yellow" }}
-                                />
-                                <p
-                                    className="text-sm text-gray-500 leading-none"
-                                    style={{ fontSize: "0.65rem" }}
-                                >
-                                    {rating} - {reviews} ratings
-                                </p>
-                            </div>
-                        </div>
-
-                        <h1 className="text-sm mt-2 flex sm:flex-row flex-col">
+                <div className="flex flex-col  basis-2/3 p-2 flex-grow">
+                    <div className="ml-6 my-auto">
+                        <h1 className="text-lg mt-2 flex sm:flex-row flex-col">
                             <span className="mr-1 text-sky-600">
                                 {fromLocation}
                             </span>
@@ -92,8 +54,18 @@ const MyListingsCard = ({
                                 {departureDate}
                             </span>
                         </p>
+                        <button
+                            // onClick={onDelete}
+                            className="w-12 h-9 my-3 flex items-center justify-center bg-red-700 rounded-lg hover:bg-red-500 text-white"
+                        >
+                            <MdDelete
+                                className="bg-transparent mx-auto"
+                                size={18}
+                            />
+                        </button>
                     </div>
                 </div>
+
                 <div className="basis-1/3 p-2 flex flex-col justify-center">
                     <h3 className="text-base font-semibold leading-none">
                         <span className="mr-1 text-sky-600">Rs.{price}</span>

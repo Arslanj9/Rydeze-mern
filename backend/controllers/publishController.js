@@ -141,7 +141,7 @@ const getPublishesByCommuter = async (req, res) => {
 };
 
 const getPublishesById = async (req, res) => {
-  const { userId } = req.params;
+  const { userId } = req.body;
 
   try {
     const publishes = await Publish.find({ publisherId: userId })
