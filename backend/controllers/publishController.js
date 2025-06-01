@@ -152,6 +152,20 @@ const getPublishesById = async (req, res) => {
 };
 
 
+const deleteListing = async (req, res) => {
+    try {
+        const { id } = req.body;
+
+        if (!id) {
+            return res.status(400).json({ message: "Listing ID is required" });
+        }
+
+        await Publish.findByIdAndDelete(id);
+        res.status(200).json({ message: "Listing deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Failed to delete listing", error });
+    }
+};
 
 
 module.exports = { 
@@ -159,5 +173,6 @@ module.exports = {
   publishByCommuter, 
   getPublishesByHost, 
   getPublishesByCommuter, 
-  getPublishesById 
+  getPublishesById ,
+  deleteListing
 };

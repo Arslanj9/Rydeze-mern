@@ -13,6 +13,7 @@ const MyListings = () => {
         const userRole = localStorage.getItem("userRole");
         setUserRole(userRole);
 
+
         // If the userId is missing, stop loading and show a message.
         if (!storedId) {
             setLoading(false);
@@ -39,6 +40,8 @@ const MyListings = () => {
         fetchMyListings();
     }, []);
 
+
+
     if (loading) return <div>Loading listings...</div>;
 
     return (
@@ -54,17 +57,10 @@ const MyListings = () => {
                     {listings.map((listing) => (
                         <div
                             key={listing._id}
-                            onClick={() =>
-                                console.log("Card clicked:", listing)
-                            }
                         >
                             {userRole === "host" ? (
                                 <MyListingsHostCard
-                                    name={listing.name}
-                                    profilePic={listing.profilePic}
-                                    contactNumber={listing.contactNumber}
-                                    rating={listing.rating}
-                                    reviews={listing.reviews}
+                                    listingId={listing._id}
                                     fromLocation={listing.fromLocation}
                                     toLocation={listing.toLocation}
                                     departureTime={listing.departureTime}
@@ -81,7 +77,6 @@ const MyListings = () => {
                                 />
                             ) : (
                                 <MyListingsCommCard
-                                    name={listing.name}
                                     fromLocation={listing.fromLocation}
                                     toLocation={listing.toLocation}
                                     departureTime={listing.departureTime}

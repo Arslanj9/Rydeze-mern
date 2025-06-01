@@ -1,7 +1,5 @@
 import { MdDelete } from "react-icons/md";
 
-// const apiUrl = import.meta.env.VITE_API_URL;
-const apiUrl = "http://localhost:5000";
 
 const MyListingsCommCard = ({
     fromLocation,

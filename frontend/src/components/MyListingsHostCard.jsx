@@ -5,11 +5,10 @@ import {
     faFaceSmile,
     faFaceFrown,
 } from "@fortawesome/free-solid-svg-icons";
-
-// const apiUrl = import.meta.env.VITE_API_URL;
-const apiUrl = "http://localhost:5000";
+import axios from "axios";
 
 const MyListingsCard = ({
+    listingId,
     fromLocation,
     toLocation,
     departureTime,
@@ -19,6 +18,8 @@ const MyListingsCard = ({
     price,
     bookedSeats,
 }) => {
+    console.log("ListingId is: " + JSON.stringify(listingId));
+
     // Count the number of male, female, and neutral icons needed
     const maleCount = Array.isArray(bookedSeats)
         ? bookedSeats
@@ -33,6 +34,30 @@ const MyListingsCard = ({
         : 0;
 
     const neutralCount = totalAvailableSeats - (maleCount + femaleCount);
+
+    const handleDelete = async (id) => {
+        const confirm = window.confirm(
+            "Are you sure you want to delete this listing?"
+        );
+        if (!confirm) return;
+
+        try {
+            const response = await axios.post(
+                "http://localhost:5000/api/publish/deleteListing",
+                {
+                    id: id,
+                }
+            );
+
+            console.log(response.data.message);
+
+            // ✅ Refresh the page
+            window.location.reload();
+            
+        } catch (error) {
+            console.error("Failed to delete listing:", error);
+        }
+    };
 
     return (
         <div className="w-full mb-3 shadow-md rounded-lg flex items-center overflow-hidden border border-gray-100 border-opacity-30 bg-opacity-30">
@@ -55,7 +80,7 @@ const MyListingsCard = ({
                             </span>
                         </p>
                         <button
-                            // onClick={onDelete}
+                            onClick={() => handleDelete(listingId)}
                             className="w-12 h-9 my-3 flex items-center justify-center bg-red-700 rounded-lg hover:bg-red-500 text-white"
                         >
                             <MdDelete
