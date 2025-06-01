@@ -9,4 +9,6 @@ router.post('/commuter', publishController.publishByCommuter);
 router.get("/getHost", publishController.getPublishesByHost);
 router.get("/getCommuter", publishController.getPublishesByCommuter);
 
+router.get('/user/:userId', publishController.getPublishesById);
+
 module.exports = router;

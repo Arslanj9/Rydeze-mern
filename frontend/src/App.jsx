@@ -8,6 +8,7 @@ import Commuters from './pages/Commuters'
 import Publish from './pages/Publish'
 import Profile from './pages/Profile'
 import EditPublish from './pages/EditPublish';
+import MyListings from './pages/MyListings';
 // import Inbox from './pages/Inbox'
 
 
@@ -65,7 +66,7 @@ function App() {
         )}
 
         {isLoggedIn && effectiveUserRole && (
-          <Route path="/editPublish" element={<EditPublish />} />
+          <Route path="/myListings" element={<MyListings />} />
         )}
 
         {/* {isLoggedIn && isRoleSelected && (

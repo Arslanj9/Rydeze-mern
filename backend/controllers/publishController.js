@@ -140,8 +140,24 @@ const getPublishesByCommuter = async (req, res) => {
   }
 };
 
+const getPublishesById = async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const publishes = await Publish.find({ publisherId: userId })
+    res.status(200).json(publishes);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch user publishes', error });
+  }
+};
 
 
 
 
-module.exports = { publishByHost, publishByCommuter, getPublishesByHost, getPublishesByCommuter };
+module.exports = { 
+  publishByHost, 
+  publishByCommuter, 
+  getPublishesByHost, 
+  getPublishesByCommuter, 
+  getPublishesById 
+};

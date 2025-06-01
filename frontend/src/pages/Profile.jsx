@@ -31,7 +31,7 @@ const Profile = () => {
                         />    
                     }
                     <div className="flex flex-col bg-transparent justify-center items-center">
-                        <h2 className="text-xl font-semibold bg-transparent">{userData.username}</h2>
+                        <h2 className="text-xl font-semibold bg-transparent mb-1">{userData.name}</h2>
                         <p className="text-xs text-yellow-500 bg-transparent">⭐ {userData.rating} Rating</p>
                         <p className="text-xs text-gray-400 bg-transparent">{userData.reviews} Reviews</p>
                     </div>
