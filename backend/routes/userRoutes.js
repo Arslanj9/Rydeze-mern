@@ -8,6 +8,7 @@ const {
   getUserById,
   getUserVehicles,
   getVehicleDetails,
+  updateUserAbout
 } = require("../controllers/userController");
 
 
@@ -21,6 +22,8 @@ router.post("/login", loginUser);
 router.post("/getUserData", getUserById);
 router.post("/vehicles", getUserVehicles);
 router.post("/getVehicle", getVehicleDetails);
+router.put('/:userId/update-about', updateUserAbout);
+
 
 
 

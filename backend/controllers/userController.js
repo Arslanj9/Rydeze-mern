@@ -268,6 +268,37 @@ const getVehicleDetails = async (req, res) => {
   }
 };
 
+
+
+const updateUserAbout = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { about } = req.body;
+
+    if (!about || typeof about !== 'string') {
+      return res.status(400).json({ error: 'About field is required and must be a string.' });
+    }
+
+    const updatedUser = await User.findOneAndUpdate(
+      { userId }, // or _id: req.params.userId, if you're using Mongo _id
+      { about },
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: 'User not found.' });
+    }
+
+    res.status(200).json({
+      message: 'About section updated successfully',
+      user: updatedUser,
+    });
+  } catch (error) {
+    console.error('Error updating about section:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
+
 module.exports = {
   registerUser,
   loginUser,
@@ -276,4 +307,5 @@ module.exports = {
   getUserById,
   getUserVehicles,
   getVehicleDetails,
+  updateUserAbout
 };
