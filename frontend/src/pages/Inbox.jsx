@@ -3,7 +3,8 @@ import axios from 'axios';
 import InboxSentReqCard from '../components/Inbox/InboxSentReqCard';
 import InboxReceivedReqCard from '../components/Inbox/InboxReceivedReqCard';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+
+const apiUrl = "https://rydeze-mern-backend.onrender.com";
 
 const Inbox = () => {
   const [activeSection, setActiveSection] = useState('sent'); // 'sent' or 'received'

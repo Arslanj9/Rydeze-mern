@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     try {
 
       // const apiUrl = import.meta.env.VITE_API_URL;
-      const apiUrl = "http://localhost:5000";
+      const apiUrl = "https://rydeze-mern-backend.onrender.com";
 
       const response = await axios.post(`${apiUrl}/api/users/login`, { userId, password, });
 

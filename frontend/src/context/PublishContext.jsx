@@ -20,7 +20,7 @@ export const PublishProvider = ({ children }) => {
       if (storedUserId) {
         try {
           // const apiUrl = import.meta.env.VITE_API_URL;
-          const apiUrl = "http://localhost:5000";
+          const apiUrl = "https://rydeze-mern-backend.onrender.com";
 
           const response = await axios.post(`${apiUrl}/api/users/vehicles`, {
             userId: storedUserId, // Send userId in the request body
@@ -58,7 +58,7 @@ const publishByHost = async (rideData) => {
     };
 
     // const apiUrl = import.meta.env.VITE_API_URL;
-    const apiUrl = "http://localhost:5000";
+    const apiUrl = "https://rydeze-mern-backend.onrender.com";
 
     const response = await axios.post(`${apiUrl}/api/publish/host`, filteredData);
 
@@ -95,7 +95,7 @@ const publishByCommuter = async (rideData) => {
     };
 
     // const apiUrl = import.meta.env.VITE_API_URL;
-    const apiUrl = "http://localhost:5000";
+    const apiUrl = "https://rydeze-mern-backend.onrender.com";
     
     const response = await axios.post(`${apiUrl}/api/publish/commuter`, filteredData);
     setRides([...rides, response.data]);

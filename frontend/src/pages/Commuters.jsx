@@ -4,7 +4,7 @@ import CommuterCard from "../components/CommuterCard";
 import CommuterDetails from "../components/CommuterDetails";
 
 // const apiUrl = import.meta.env.VITE_API_URL;
-const apiUrl = "http://localhost:5000";
+const apiUrl = "https://rydeze-mern-backend.onrender.com";
 
 const Commuters = () => {
     const [commuterData, setCommuterData] = useState([]);

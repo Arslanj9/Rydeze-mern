@@ -23,7 +23,7 @@ const MyListings = () => {
         const fetchMyListings = async () => {
             try {
                 const { data } = await axios.post(
-                    "http://localhost:5000/api/publish/getMyListings",
+                    "https://rydeze-mern-backend.onrender.com/api/publish/getMyListings",
                     { userId: storedId },
                     { headers: { "Content-Type": "application/json" } }
                 );

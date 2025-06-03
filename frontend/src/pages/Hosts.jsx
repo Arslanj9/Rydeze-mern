@@ -5,7 +5,7 @@ import HostCard from "../components/HostCard";
 import HostDetails from "../components/HostDetails";
 
 // const apiUrl = import.meta.env.VITE_API_URL;
-const apiUrl = "http://localhost:5000";
+const apiUrl = "https://rydeze-mern-backend.onrender.com";
 
 const Hosts = () => {
     const [publishesData, setPublishesData] = useState([]);
